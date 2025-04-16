@@ -1,0 +1,15 @@
+.active {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(151, 111, 37);
+}
+
+tr:hover {
+  cursor: pointer;
+}
