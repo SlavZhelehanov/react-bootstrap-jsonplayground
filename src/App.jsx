@@ -9,6 +9,7 @@ import AlbumsAll from './components/album/AlbumsAll';
 import AlbumPhotos from './components/album/AlbumPhotos';
 import PostsAll from './components/post/PostsAll';
 import PostComments from './components/post/PostComments';
+import UsersAll from './components/user/UsersAll';
 
 export default function App() {
     return (
@@ -21,6 +22,7 @@ export default function App() {
                 <Route path='/albums/:id/photos' element={<AlbumPhotos />} />
                 <Route path='/posts' element={<PostsAll />} />
                 <Route path='/posts/:id/comments' element={<PostComments />} />
+                <Route path='/users' element={<UsersAll />} />
             </Routes>
         </>
     )
