@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './components/global/Header';
 import HomePage from './components/HomePage';
+import AlbumsAll from './components/album/AlbumsAll';
 
 export default function App() {
     return (
@@ -13,6 +14,7 @@ export default function App() {
 
             <Routes>
                 <Route path='/' element={<HomePage />} />
+                <Route path='/albums' element={<AlbumsAll />} />
             </Routes>
         </>
     )
