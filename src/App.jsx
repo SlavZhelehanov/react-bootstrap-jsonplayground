@@ -11,6 +11,7 @@ import PostsAll from './components/post/PostsAll';
 import PostComments from './components/post/PostComments';
 import UsersAll from './components/user/UsersAll';
 import UsersAlbums from './components/user/UsersAlbums';
+import UsersPosts from './components/user/UsersPosts';
 
 export default function App() {
     return (
@@ -25,6 +26,7 @@ export default function App() {
                 <Route path='/posts/:id/comments' element={<PostComments />} />
                 <Route path='/users' element={<UsersAll />} />
                 <Route path='/users/:id/albums' element={<UsersAlbums />} />
+                <Route path='/users/:id/posts' element={<UsersPosts />} />
             </Routes>
         </>
     )
