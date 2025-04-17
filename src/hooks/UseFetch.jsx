@@ -30,9 +30,9 @@ export default function useFetch(baseURL) {
         } catch (err) {
             if (err.name === "AbortError") {
                 console.log("Fetch aborted");
-                setError("Fetch aborted");
+                setError({ message: "Fetch aborted" });
             } else {
-                setError(err.message);
+                setError(err);
             }
         } finally {
             setLoading(false);

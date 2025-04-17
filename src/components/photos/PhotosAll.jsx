@@ -16,7 +16,7 @@ export default function PhotosAll() {
         get(`photos`, { signal });
 
         return () => {
-            controller.abort(); // Cancel the fetch request if the component unmounts
+            controller.abort();
         };
     }, []);
 
@@ -24,7 +24,7 @@ export default function PhotosAll() {
         <Container className="mt-4">
             {loading && <Spinner centered />}
 
-            {error && <Message message={error?.message || error} color="danger" />}
+            {error && <Message content={error?.message || error} color="danger" />}
 
             {data && (
                 <Row xs={1} md={2} lg={3} className="g-4">
