@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 
 import "./user-profile.css";
 
@@ -16,6 +16,9 @@ export default function UserProfile() {
         get(`users?${param}=${value}`);
     }, []);
 
+    console.log(data);
+    
+
     return (<>
         {loading && <Spinner />}
 
@@ -29,49 +32,46 @@ export default function UserProfile() {
                             <div className="about-text go-to">
                                 <h3 className="dark-color">About Me</h3>
                                 <h6 className="theme-color lead">
-                                    A Lead UX &amp; UI designer based in Canada
+                                    {data[0].company.bs}
                                 </h6>
                                 <p>
-                                    I <mark>design and develop</mark> services for customers of all
-                                    sizes, specializing in creating stylish, modern websites, web
-                                    services and online stores. My passion is to design digital user
-                                    experiences through the bold interface and meaningful interactions.
+                                    {data[0].company.catchPhrase}
                                 </p>
                                 <div className="row about-list">
                                     <div className="col-md-6">
                                         <div className="media">
-                                            <label>Birthday</label>
-                                            <p>4th april 1998</p>
+                                            <label>Name</label>
+                                            <p>{data[0].name}</p>
                                         </div>
                                         <div className="media">
-                                            <label>Age</label>
-                                            <p>22 Yr</p>
+                                            <label>Username</label>
+                                            <p>{data[0].username}</p>
                                         </div>
                                         <div className="media">
-                                            <label>Residence</label>
-                                            <p>Canada</p>
+                                            <label>Zip code</label>
+                                            <p>{data[0].address.zipcode}</p>
                                         </div>
                                         <div className="media">
                                             <label>Address</label>
-                                            <p>California, USA</p>
+                                            <p>{data[0].address.street}, {data[0].address.city}</p>
                                         </div>
                                     </div>
                                     <div className="col-md-6">
                                         <div className="media">
                                             <label>E-mail</label>
-                                            <p>info@domain.com</p>
+                                            <p>{data[0].email}</p>
                                         </div>
                                         <div className="media">
                                             <label>Phone</label>
-                                            <p>820-885-3321</p>
+                                            <p>{data[0].phone}</p>
                                         </div>
                                         <div className="media">
-                                            <label>Skype</label>
-                                            <p>skype.0404</p>
+                                            <label>Website</label>
+                                            <p>{data[0].website}</p>
                                         </div>
                                         <div className="media">
-                                            <label>Freelance</label>
-                                            <p>Available</p>
+                                            <label>Company</label>
+                                            <p>{data[0].company.name}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -80,47 +80,48 @@ export default function UserProfile() {
                         <div className="col-lg-6">
                             <div className="about-avatar">
                                 <img
-                                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                                    title=""
-                                    alt=""
+                                    src={`https://robohash.org/${data[0].username}`}
+                                    title={data[0].username}
+                                    alt={data[0].username}
                                 />
                             </div>
                         </div>
                     </div>
+                    <br /><br /><br />
                     <div className="counter">
                         <div className="row">
                             <div className="col-6 col-lg-3">
                                 <div className="count-data text-center">
                                     <h6 className="count h2" data-to={500} data-speed={500}>
-                                        500
+                                        <Link to={`/users/${data[0].id}/albums`}>Albums</Link>
                                     </h6>
-                                    <p className="m-0px font-w-600">Happy Clients</p>
+                                    {/* <p className="m-0px font-w-600">Happy Clients</p> */}
                                 </div>
                             </div>
                             <div className="col-6 col-lg-3">
                                 <div className="count-data text-center">
                                     <h6 className="count h2" data-to={150} data-speed={150}>
-                                        150
+                                    <Link to={`/users/${data[0].id}/todos`}>TODOs</Link>
                                     </h6>
-                                    <p className="m-0px font-w-600">Project Completed</p>
+                                    {/* <p className="m-0px font-w-600">Project Completed</p> */}
                                 </div>
                             </div>
                             <div className="col-6 col-lg-3">
                                 <div className="count-data text-center">
                                     <h6 className="count h2" data-to={850} data-speed={850}>
-                                        850
+                                    <Link to={`/users/${data[0].id}/posts`}>Posts</Link>
                                     </h6>
-                                    <p className="m-0px font-w-600">Photo Capture</p>
+                                    {/* <p className="m-0px font-w-600">Photo Capture</p> */}
                                 </div>
                             </div>
-                            <div className="col-6 col-lg-3">
+                            {/* <div className="col-6 col-lg-3">
                                 <div className="count-data text-center">
                                     <h6 className="count h2" data-to={190} data-speed={190}>
                                         190
                                     </h6>
                                     <p className="m-0px font-w-600">Telephonic Talk</p>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
