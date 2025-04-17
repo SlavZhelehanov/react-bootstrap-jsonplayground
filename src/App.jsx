@@ -14,6 +14,7 @@ import UsersAll from './components/user/UsersAll';
 import UsersAlbums from './components/user/UsersAlbums';
 import UsersPosts from './components/user/UsersPosts';
 import UsersTodos from './components/user/UsersTodos';
+import PageNotFound from './components/global/PageNotFound';
 
 export default function App() {
     return (
@@ -31,6 +32,7 @@ export default function App() {
                 <Route path='/users/:id/albums' element={<UsersAlbums />} />
                 <Route path='/users/:id/posts' element={<UsersPosts />} />
                 <Route path='/users/:id/todos' element={<UsersTodos />} />
+                <Route path='*' element={<PageNotFound />} />
             </Routes>
         </>
     )
