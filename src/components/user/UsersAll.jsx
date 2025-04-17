@@ -11,13 +11,11 @@ export default function UsersAll() {
     const { data, error, loading, get } = useFetch("https://jsonplaceholder.typicode.com/");
 
     useEffect(() => {
-        get("users?username=Kamren");
+        get("users");
     }, []);
 
-    console.log(data);    
-
     return (<>
-        {loading && <Spinner />}
+        {loading && <Spinner centered/>}
 
         {error && <Message message={error?.message || error} color="danger" />}
 
