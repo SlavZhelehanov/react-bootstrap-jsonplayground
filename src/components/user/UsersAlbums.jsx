@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { Table } from "react-bootstrap";
 import { useEffect } from "react";
 
@@ -23,25 +23,18 @@ export default function UsersAlbums() {
         {data && <Table responsive striped bordered hover>
             <thead>
                 <tr>
-                    {Object.keys(data[0]).map((objKey, index) => {
-                        if (objKey === "userId") {
-                            return <th key={index}>id</th>
-                        } else if (objKey === "id") {
-                            return <th key={index}>userId</th>
-                        } else {
-                            return <th key={index}>{objKey}</th>
-                        }
-                    })}
+                    <th>ID</th>
+                    <th>Owner ID</th>
+                    <th>Title</th>
                 </tr>
             </thead>
             <tbody>
                 {data.map((album, idx) => {
                     return (
-                        <tr key={idx} >
+                        <tr >
                             <td>{album["id"]}</td>
-                            {Object.keys(album).map((col, i) => {
-                                if (col != "id") return <td key={i}>{album[col]}</td>
-                            })}
+                            <td><Link to={`/users/id/${album.userId}`}>{album["userId"]}</Link></td>
+                            <td>{album["title"]}</td>
                         </tr>
                     );
                 })}
