@@ -22,7 +22,7 @@ export default function PhotosAll() {
 
     return (
         <Container className="mt-4">
-            {loading && <Spinner centered />}
+            {loading && <Spinner />}
 
             {error && <Message content={error?.message || error} color="danger" />}
 

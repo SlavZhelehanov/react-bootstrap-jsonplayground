@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 
 import useFetch from '../../hooks/UseFetch';
 import Spinner from '../global/Spinner';
@@ -34,10 +34,10 @@ export default function PostComments() {
                     return (
                         <tr key={idx} >
                             <td>{comment["postId"]}</td>
-                            {Object.keys(comment).map((col, i) => {
-                                if (col === "id") return <td key={i}>{comment["id"]}</td>
-                                else if (col != "postId") return <td key={i}>{comment[col]}</td>
-                            })}
+                            <td>{comment["id"]}</td>
+                            <td>{comment["name"]}</td>
+                            <td><Link to={`/users/email/${comment["email"]}`}>{comment["email"]}</Link></td>
+                            <td>{comment["body"]}</td>
                         </tr>
                     );
                 })}

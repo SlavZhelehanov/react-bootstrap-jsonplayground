@@ -11,6 +11,7 @@ import PhotosAll from './components/photos/PhotosAll';
 import PostsAll from './components/post/PostsAll';
 import PostComments from './components/post/PostComments';
 import UsersAll from './components/user/UsersAll';
+import UserProfile from './components/user/UserProfile';
 import UsersAlbums from './components/user/UsersAlbums';
 import UsersPosts from './components/user/UsersPosts';
 import UsersTodos from './components/user/UsersTodos';
@@ -29,6 +30,7 @@ export default function App() {
                 <Route path='/posts' element={<PostsAll />} />
                 <Route path='/posts/:id/comments' element={<PostComments />} />
                 <Route path='/users' element={<UsersAll />} />
+                <Route path='/users/:param/:value' element={<UserProfile />} />
                 <Route path='/users/:id/albums' element={<UsersAlbums />} />
                 <Route path='/users/:id/posts' element={<UsersPosts />} />
                 <Route path='/users/:id/todos' element={<UsersTodos />} />
