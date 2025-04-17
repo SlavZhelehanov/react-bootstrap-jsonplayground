@@ -16,9 +16,6 @@ export default function UserProfile() {
         get(`users?${param}=${value}`);
     }, []);
 
-    console.log(data);
-    
-
     return (<>
         {loading && <Spinner />}
 

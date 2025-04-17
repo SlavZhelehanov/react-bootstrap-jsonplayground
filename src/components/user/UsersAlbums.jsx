@@ -31,7 +31,7 @@ export default function UsersAlbums() {
             <tbody>
                 {data.map((album, idx) => {
                     return (
-                        <tr >
+                        <tr key={idx}>
                             <td>{album["id"]}</td>
                             <td><Link to={`/users/id/${album.userId}`}>{album["userId"]}</Link></td>
                             <td>{album["title"]}</td>
