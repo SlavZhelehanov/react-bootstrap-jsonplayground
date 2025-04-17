@@ -11,7 +11,7 @@ export default function UsersTodos() {
     const { data, error, loading, get } = useFetch("https://jsonplaceholder.typicode.com/");
 
     useEffect(() => {
-        get(`posts?userId=${id}`);
+        get(`users/${id}/todos`);
     }, [id]);
 
     return (<>
