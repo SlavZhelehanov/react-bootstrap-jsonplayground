@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 import useFetch from '../../hooks/UseFetch';
 import Spinner from '../global/Spinner';
@@ -15,34 +15,27 @@ export default function UsersAll() {
     }, []);
 
     return (<>
-        {loading && <Spinner centered/>}
+        {loading && <Spinner centered />}
 
         {error && <Message message={error?.message || error} color="danger" />}
 
         {data && <Table responsive striped bordered hover>
             <thead>
                 <tr>
-                    {Object.keys(data[0]).map((objKey, index) => (
-                        <th key={index}>{objKey}</th>
-                    ))}
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
                 {data.map((user, idx) => {
                     return (
-                        <tr key={idx} onClick={() => navigate(`/users/${user["id"]}/posts`)}>
-                            <td>{user["id"]}</td>
-                            {Object.keys(user).map((col, i) => {
-                                if (col != "id") {
-                                    if (col === "address") {
-                                        return <td key={i}>{user[col]["street"]}</td>
-                                    } else if (col === "company") {
-                                        return <td key={i}>{user[col]["name"]}</td>
-                                    } else {
-                                        return <td key={i}>{user[col]}</td>
-                                    }
-                                }
-                            })}
+                        <tr key={idx}>
+                            <td><Link to={`/users/id/${user.id}`}>{user["id"]}</Link></td>
+                            <td><Link to={`/users/name/${user.name}`}>{user["name"]}</Link></td>
+                            <td><Link to={`/users/username/${user.username}`}>{user["username"]}</Link></td>
+                            <td><Link to={`/users/email/${user.email}`}>{user["email"]}</Link></td>
                         </tr>
                     );
                 })}
