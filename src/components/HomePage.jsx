@@ -38,12 +38,12 @@ export default function HomePage() {
                             <div className="card bg-light border-0 h-100">
                                 <div className="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                     <div className="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i className="bi bi-bootstrap"></i></div>
-                                    <h2 className="fs-4 fw-bold">Feature boxes</h2>
-                                    <p className="mb-0">We've created some custom feature boxes using Bootstrap icons!</p>
+                                    <h2 className="fs-4 fw-bold"><Link to="/photos"><i className="fa fa-address-book-o" aria-hidden="true"></i> All Photos</Link></h2>
+                                    <p className="mb-0">Grid of all created albums</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6 col-xxl-4 mb-5">
+                        {/* <div className="col-lg-6 col-xxl-4 mb-5">
                             <div className="card bg-light border-0 h-100">
                                 <div className="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                     <div className="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i className="bi bi-code"></i></div>
@@ -60,7 +60,7 @@ export default function HomePage() {
                                     <p className="mb-0">Start Bootstrap has been the leader in free Bootstrap templates since 2013!</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </main>
